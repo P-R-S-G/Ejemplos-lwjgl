@@ -1,12 +1,10 @@
-#ant specific
+# Ant specific
 dist/
 build/
  
-#netbeans specific
+# Netbeans specific
 core
-nbproject/*
-!nbproject/project.properties
-!nbproject/project.xml
+nbproject/private
 
 # Java
 *.class
@@ -16,6 +14,6 @@ nbproject/*
 *.war
 *.ear
 
-#Linux
+# Linux
 .directory
 *~
