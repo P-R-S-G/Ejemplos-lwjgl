@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package lwjgl_examples;
+package Examples;
 
 import static org.lwjgl.opengl.GL11.*;
+import org.lwjgl.input.Keyboard;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.lwjgl.LWJGLException;
@@ -14,7 +15,7 @@ import org.lwjgl.opengl.*;
  *
  * @author writkas
  */
-public class LWJGL_Example1 {
+public class LWJGL_Example2{
 
     /**
      * @param args the command line arguments
@@ -28,37 +29,38 @@ public class LWJGL_Example1 {
             Display.create ();
             Display.setTitle("Hello!!");
         } catch (LWJGLException ex) {
-            Logger.getLogger(LWJGL_Example1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LWJGL_Example2.class.getName()).log(Level.SEVERE, null, ex);
         }
         
        glMatrixMode(GL_PROJECTION);
        glLoadIdentity();
-       glOrtho(0, 800, 600, 0, 1, -1);
+       glOrtho(0, 640, 480, 0, 1, -1);
        glMatrixMode(GL_MODELVIEW);
         
         // Game Loop
         
         while (!Display.isCloseRequested()) {
             
-            /*
-             *  Render
-             */  
-
-            // Line
+            if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)) {
+                Display.destroy();
+                System.exit(0);
+            }
             
-            glBegin(GL_LINES);
-                glVertex2i(50, 50);
-                glVertex2i(100, 100);
-            glEnd();  
+            else if (Keyboard.isKeyDown(Keyboard.KEY_UP)) {
+                System.out.println ("up!");
+            }
             
-            // Quad
+            else if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
+                System.out.println ("left!");
+            }
             
-            glBegin(GL_QUADS);
-                glVertex2i(150, 150); // upper-left
-                glVertex2i(300, 150); // upper-right
-                glVertex2i(300, 300); // bottom-rigth
-                glVertex2i(150, 300); // bottom-left
-            glEnd();  
+            else if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
+                System.out.println ("right!");
+            }
+            
+            else if (Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
+                System.out.println ("down!");
+            }
             
             Display.update();
             Display.sync(60);
