@@ -1,10 +1,10 @@
 # Ant specific
-dist/
-build/
+#dist/
+#build/
  
 # Netbeans specific
-core
-nbproject/private
+#core
+#nbproject/private
 
 # Java
 *.class
