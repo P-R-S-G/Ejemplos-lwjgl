@@ -15,7 +15,7 @@ import org.lwjgl.opengl.*;
  *
  * @author writkas
  */
-public class LWJGL_Example4_move {
+public class LWJGL_Example6_automove {
     
     /**
      * @param args the command line arguments
@@ -29,8 +29,7 @@ public class LWJGL_Example4_move {
             Display.create ();
             Display.setTitle("Hello!!");
         } catch (LWJGLException ex) {
-            Logger.getLogger(LWJGL_Example1.class.getName())
-                    .log(Level.SEVERE, null, ex);
+            Logger.getLogger(LWJGL_Example1.class.getName()).log(Level.SEVERE, null, ex);
         }
         
        glMatrixMode(GL_PROJECTION);
@@ -49,16 +48,65 @@ public class LWJGL_Example4_move {
             // Borra la pantalla 
             glClear(GL_COLOR_BUFFER_BIT);
             
+            
             if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)) {
                 Display.destroy();
                 System.exit(0);
             }
             
-            else if (Keyboard.isKeyDown(Keyboard.KEY_UP)) {
+            else if (Keyboard.isKeyDown(Keyboard.KEY_UP)&&(Keyboard.isKeyDown(Keyboard.KEY_RIGHT))) {
                 p1y += -20;
                 p2y += -20;
                 p3y += -20;
-                p4y += -20;                
+                p4y += -20;
+                
+                p1x += 20;
+                p2x += 20;
+                p3x += 20;
+                p4x += 20;
+            }
+         
+            else if (Keyboard.isKeyDown(Keyboard.KEY_DOWN)&&(Keyboard.isKeyDown(Keyboard.KEY_RIGHT))) {
+                p1y += 20;
+                p2y += 20;
+                p3y += 20;
+                p4y += 20;
+                
+                p1x += 20;
+                p2x += 20;
+                p3x += 20;
+                p4x += 20;
+            }
+            
+            else if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)&&(Keyboard.isKeyDown(Keyboard.KEY_UP))) {
+                p1x += -20;
+                p2x += -20;
+                p3x += -20;
+                p4x += -20;
+                
+                p1y += -20;
+                p2y += -20;
+                p3y += -20;
+                p4y += -20;
+            }
+            
+            else if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)&&(Keyboard.isKeyDown(Keyboard.KEY_DOWN))) {
+                p1x += -20;
+                p2x += -20;
+                p3x += -20;
+                p4x += -20;
+                
+                p1y += 20;
+                p2y += 20;
+                p3y += 20;
+                p4y += 20;
+            }
+            
+            else if (Keyboard.isKeyDown(Keyboard.KEY_UP)){
+                p1y += -20;
+                p2y += -20;
+                p3y += -20;
+                p4y += -20;
             }
             
             else if (Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
@@ -68,6 +116,13 @@ public class LWJGL_Example4_move {
                 p4y += 20;
             }
             
+            else if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)){
+                p1x += 20;
+                p2x += 20;
+                p3x += 20;
+                p4x += 20;
+            }
+            
             else if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
                 p1x += -20;
                 p2x += -20;
@@ -75,18 +130,16 @@ public class LWJGL_Example4_move {
                 p4x += -20;
             }
             
-            else if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
-                p1x += 20;
-                p2x += 20;
-                p3x += 20;
-                p4x += 20;
-            }
+            p1x += 1;
+            p2x += 1;
+            p3x += 1;
+            p4x += 1;
             
             /*
              *  Render
              */ 
 
-            glColor3f(0f, 0f, 1f);
+            glColor3f(1f, 1f, 0f);
             
             // Line
             
